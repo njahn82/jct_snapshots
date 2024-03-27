@@ -4,6 +4,9 @@
 #' @param data_url URL to Google Spreadsheet
 #' 
 #' @importFrom dplyr select mutate filter
+#' @importFrom readr read_csv
+#' @importFrom janitor clean_names
+#' @importFrom rlang .data 
 #' @export
 jct_fetch <- function(esac_id = NULL, data_url = NULL) {
   # Progress
@@ -25,7 +28,7 @@ jct_fetch <- function(esac_id = NULL, data_url = NULL) {
       first_seen = 4,
       last_seen = 5
     ) |>
-    dplyr::filter(!is.na(journal_name)) |>
+    dplyr::filter(!is.na(.data$journal_name)) |>
     dplyr::mutate(esac_id = esac_id)
   
   # Institutional-level data
@@ -36,7 +39,7 @@ jct_fetch <- function(esac_id = NULL, data_url = NULL) {
       inst_first_seen = 8,
       inst_last_seen = 9
     ) |>
-    dplyr::filter(!is.na(inst_name)) |>
+    dplyr::filter(!is.na(.data$inst_name)) |>
     dplyr::mutate(esac_id = esac_id)
   
   # Return

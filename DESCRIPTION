@@ -1,11 +1,13 @@
-Package: jctsnapshots
+Package: gi
 Title: Safeguarding Transformative Agreements Public Data exposed by the Journal Checker Tool
 Version: 0.0.0.9000
 Authors@R: c(
     person("Najko", "Jahn", , "najko.jahn@sub.uni-goettingen.de", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-5105-1463"),
            ),
-    person("Bianca", "Kramer", , "bianca@sesameopenscience.org", role = c("aut", "cre"), comment = c(ORCID = "/0000-0002-5965-6560"))
+    person("Bianca", "Kramer", , "bianca@sesameopenscience.org", role = c("aut"), 
+    comment = c(ORCID = "0000-0002-5965-6560"))
+    )
 Description: Programmatically fetch Transformative Agreements Public Data exposed by the Journal Checker Tool <https://journalcheckertool.org/transformative-agreements/>.
 License: CC0
 Encoding: UTF-8
@@ -14,9 +16,11 @@ RoxygenNote: 7.2.3
 Imports: 
     dplyr,
     readr,
+    janitor,
+    rlang
+Suggests:
     purrr,
     knitr,
     curl,
     lubridate,
-    fs,
-    janitor
+    fs
