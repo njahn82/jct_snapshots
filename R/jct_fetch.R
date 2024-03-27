@@ -55,3 +55,17 @@ jct_overview <- function(data_url = jct_url()) {
 jct_url <-
   function()
     "https://docs.google.com/spreadsheets/d/e/2PACX-1vStezELi7qnKcyE8OiO2OYx2kqQDOnNsDX1JfAsK487n2uB_Dve5iDTwhUFfJ7eFPDhEjkfhXhqVTGw/pub?gid=1130349201&single=true&output=csv"
+
+#' Get ESAC Data
+#' 
+#' @param data_url URL of ESAC registry dump
+#' 
+#' @importFrom readxl read_xlsx
+#' @importFrom janitor clean_names
+#' @importFrom utils download.file
+esac_fetch <- function(data_url = "https://keeper.mpdl.mpg.de/f/7fbb5edd24ab4c5ca157/?dl=1") {
+  tmp <- tempfile()
+  download.file(data_url, tmp)
+  readxl::read_xlsx(tmp, skip = 2) |>
+    janitor::clean_names()
+}

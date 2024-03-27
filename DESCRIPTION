@@ -1,4 +1,4 @@
-Package: gi
+Package: jctsnapshots
 Title: Safeguarding Transformative Agreements Public Data exposed by the Journal Checker Tool
 Version: 0.0.0.9000
 Authors@R: c(
@@ -17,7 +17,8 @@ Imports:
     dplyr,
     readr,
     janitor,
-    rlang
+    rlang,
+    readxl
 Suggests:
     purrr,
     knitr,

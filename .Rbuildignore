@@ -1,2 +1,4 @@
 ^data-raw$
 jct_snapshots.Rproj
+^.github$
+LICENSE
