@@ -18,7 +18,7 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       R_KEEP_PKG_SOURCE: yes
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -27,6 +27,11 @@ jobs:
           use-public-rspm: true
           
       - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: any::rcmdcheck
+          needs: check
+      
+      - uses: r-lib/actions/check-r-package@v2
       
       - name: Fetch JCT data
         run: |

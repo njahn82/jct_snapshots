@@ -24,5 +24,6 @@ Suggests:
     knitr,
     curl,
     lubridate,
-    fs,
-    devtools
+    devtools,
+    here,
+    fs
