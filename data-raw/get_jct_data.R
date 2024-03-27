@@ -16,7 +16,7 @@ purrr::map(jct_req, "result") |>
   purrr::map_df("jn_df") |>
   readr::write_csv(paste0(path, "/jct_journals.csv"))
 # Save inst data
-inst_df <- purrr::map(jct_journal_out, "result") |>
+inst_df <- purrr::map(jct_req, "result") |>
   purrr::map_df("inst_df") |>
   readr::write_csv(paste0(path, "jct_institutions.csv"))
 
